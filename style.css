@@ -40,3 +40,8 @@ background-color: #d9f2d9;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.cell.winner {
+    background-color: yellow;
+    outline: 4px solid orange;
+}
