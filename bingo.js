@@ -1,5 +1,8 @@
+
+// finds every cell and stores in list
 const cells = document.querySelectorAll(".cell");
 
+// every cell listsn for clicks, turns "on/off," then checks for bingo
 cells.forEach(cell => {
     cell.addEventListener("click", () => {
         cell.classList.toggle("marked");
@@ -22,29 +25,33 @@ const winningCombos = [
   [3, 8, 13, 18, 23],
   [4, 9, 14, 19, 24],
 
-  // diagonals
+  // diags
   [0, 6, 12, 18, 24],
   [4, 8, 12, 16, 20]
 ];
 
-function checkBingo() {
-  const cells = document.querySelectorAll(".cell");
 
-  const marked = [...cells].map(cell =>
+function clearWinners() {
+    cells.forEach(cell => {
+        cell.classList.remove("winner");
+    })
+}
+
+// This function checks each cell
+function checkBingo() {
+    clearWinners();
+    const marked = [...cells].map(cell =>
     cell.classList.contains("marked")
   );
 
   for (let combo of winningCombos) {
     if (combo.every(i => marked[i])) {
       highlightWinner(combo);
-      return;
     }
   }
 }
 
-
 function highlightWinner(combo) {
-  const cells = document.querySelectorAll(".cell");
   combo.forEach(index => {
     cells[index].classList.add("winner");
   });
