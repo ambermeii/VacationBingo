@@ -1,8 +1,8 @@
 
-// finds every cell and stores in list
+// Finds every element that has class 'cell' and stores in list
 const cells = document.querySelectorAll(".cell");
 
-// every cell listsn for clicks, turns "on/off," then checks for bingo
+// Every cell listsn for clicks, turns "on/off," then checks for bingo
 cells.forEach(cell => {
     cell.addEventListener("click", () => {
         cell.classList.toggle("marked");
@@ -30,27 +30,52 @@ const winningCombos = [
   [4, 8, 12, 16, 20]
 ];
 
-
 function clearWinners() {
-    cells.forEach(cell => {
-        cell.classList.remove("winner");
-    })
+    for (let i = 0; i < cells.length; i++) {
+        cells[i].classList.remove("winner");
+    }
+    // NOTE THIS FUNCTION CAN ALSO BE WRITTEN AS:
+    // cells.forEach(cell => {
+    //     cell.classList.remove("winner");
+    // })
 }
 
 // This function checks each cell
 function checkBingo() {
     clearWinners();
-    const marked = [...cells].map(cell =>
-    cell.classList.contains("marked")
-  );
+    // Track cells that are marked
+    let marked = [];
 
-  for (let combo of winningCombos) {
-    if (combo.every(i => marked[i])) {
-      highlightWinner(combo);
+    // Build a list that tracks which cells are marked (true/false)
+    for (let i = 0; i < cells.length; i++) {
+        marked[i] = cells[i].classList.contains("marked");
     }
-  }
+
+    // Check each winning combo
+    for (let j = 0; j < winningCombos.length; j++) {
+        let combo = winningCombos[j];
+        let isWinner = true;
+
+    // Check all 5 cells in this combo
+    for (let k = 0; k < combo.length; k++) {
+        let value = combo[k];
+        if (!marked[value]) {
+            isWinner = false;
+            break;
+        }
+    }
+
+    // If all 5 were marked, highlight them
+    if (isWinner) {
+        for (let k = 0; k < combo.length; k++) {
+            let index = combo[k];
+            cells[index].classList.add("winner");
+            }
+        }
+    }
 }
 
+// This function takes the BINGO combo and highlights each one
 function highlightWinner(combo) {
   combo.forEach(index => {
     cells[index].classList.add("winner");
