@@ -1,14 +1,23 @@
 
+const board = document.getElementById("bingoBoard");
+
+// Create board from preset
+beachPreset.forEach(text => {
+  const cell = document.createElement("div");
+  cell.classList.add("cell");
+  cell.textContent = text;
+
+  // click behavior
+  cell.addEventListener("click", () => {
+    cell.classList.toggle("marked");
+    checkBingo();
+  });
+
+  board.appendChild(cell);
+});
+
 // Finds every element that has class 'cell' and stores in list
 const cells = document.querySelectorAll(".cell");
-
-// Every cell listsn for clicks, turns "on/off," then checks for bingo
-cells.forEach(cell => {
-    cell.addEventListener("click", () => {
-        cell.classList.toggle("marked");
-        checkBingo();
-    });
-});
 
 const winningCombos = [
   // rows
