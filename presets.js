@@ -1,32 +1,65 @@
-// One preset board (your old board moved here)
+// Beach preset board
 const beachPreset = [
-  "Go fishing",
+  "Boogieboarding/surf",
   "Watch sunrise",
-  "Swim in the ocean",
+  "Go swimming",
   "Build a sandcastle",
   "Collect shells",
 
   "Eat seafood",
   "Beach picnic",
-  "Take sunset photos",
-  "Ride a bike",
-  "Buy souvenirs",
+  "Find a crab",
+  "Sunset cruise",
+  "Someone gets a sunburn",
 
-  "Walk barefoot",
+  "Check out pier",
   "Read a book",
-  "Play volleyball",
+  "Outdoor games",
   "Try snorkeling",
-  "Drink lemonade",
+  "Collect seashells",
 
-  "See dolphins",
+  "Spot a dolphin",
   "Visit boardwalk",
-  "Ice cream stop",
+  "Ice cream",
   "Go kayaking",
-  "Evening bonfire",
+  "Boogieboard/Surf",
 
-  "Star gazing",
-  "Night walk",
-  "Listen to waves",
-  "Morning coffee",
+  "Stargazing",
+  "Watch Sunset",
+  "Build a sandcastle",
+  "Go souvenir shopping",
+  "Group photo"
+];
+
+// Tennessee Preset Board
+const gatlinbergPreset = [
+  "See a waterfall",
+  "Visit a sourvenir shop",
+  "Zipine",
+  "Explore downtown",
+  "Hollywood Cars Museum",
+
+  "Eat somewhere on the parkway",
+  "Go fishing",
+  "Salt & Pepper Shaker Museum",
+  "Visit the Titanic Museum",
+  "Mini golf",
+
+  "Hike a trail",
+  "FREE",
+  "Group pic",
+  "Football/Outdoor games",
+  "Visit mountain view",
+
+  "Spot a bear",
+  "Have a bonfire",
+  "Dollywood",
+  "Watch sunrise",
+  "Visit a candy shop",
+
+  "Hot tub",
+  "Try an Appalachian dish",
+  "White water rafting",
+  "Visit a cavern",
   "Last-day photo"
 ];
