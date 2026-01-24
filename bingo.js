@@ -7,7 +7,7 @@ beachPreset.forEach(text => {
   cell.classList.add("cell");
   cell.textContent = text;
 
-  // click behavior
+  // Click behavior
   cell.addEventListener("click", () => {
     cell.classList.toggle("marked");
     checkBingo();
@@ -54,7 +54,6 @@ function checkBingo() {
     clearWinners();
     // Track cells that are marked
     let marked = [];
-
     // Build a list that tracks which cells are marked (true/false)
     for (let i = 0; i < cells.length; i++) {
         marked[i] = cells[i].classList.contains("marked");
@@ -65,7 +64,7 @@ function checkBingo() {
         let combo = winningCombos[j];
         let isWinner = true;
 
-    // Check all 5 cells in this combo
+    // Use combo index to find correlating marked value to see if all are marked
     for (let k = 0; k < combo.length; k++) {
         let value = combo[k];
         if (!marked[value]) {
@@ -90,3 +89,4 @@ function highlightWinner(combo) {
     cells[index].classList.add("winner");
   });
 }
+
